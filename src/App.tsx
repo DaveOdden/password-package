@@ -22,8 +22,9 @@ export const App: React.FC = () => {
       <Carousel
         draggable={false}
         withControls={false}
-        onSlideChange={setSlide}
+        withKeyboardEvents={false}
         getEmblaApi={(e) => setEmbla(e)}
+        onSlideChange={setSlide}
         slideSize={440}
       >
         <SlideComponents currentSlide={slide} carouselApi={embla} />
