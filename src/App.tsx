@@ -24,6 +24,7 @@ export const App = () => {
         withControls={false}
         onSlideChange={setSlide}
         getEmblaApi={(e) => setEmbla(e)}
+        slideSize={440}
       >
         <SlideComponents currentSlide={slide} instanceApi={embla} />
       </Carousel>
