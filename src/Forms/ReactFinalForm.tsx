@@ -11,7 +11,7 @@ import { Form, Field } from "react-final-form"
 import { useDisclosure } from "@mantine/hooks"
 import { customZodSchema } from "zod-password-validation-schema"
 
-export const FinalReactForm = () => {
+export const ReactFinalForm = () => {
   const [visible, { toggle }] = useDisclosure(false)
 
   const submitForm = (values: IPasswordFormFields) => {
