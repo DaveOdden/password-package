@@ -10,6 +10,7 @@ import { Formik, Form } from "formik"
 import { useDisclosure } from "@mantine/hooks"
 import { customZodSchema } from "zod-password-validation-schema"
 import { toFormikValidate } from "zod-formik-adapter"
+import { notifications } from "@mantine/notifications"
 
 export const FormikForm = () => {
   const [visible, { toggle }] = useDisclosure(false)
@@ -17,6 +18,10 @@ export const FormikForm = () => {
   const submitForm = (values: IPasswordFormFields) => {
     console.log("Formik Form - Submit")
     console.log(values)
+    notifications.show({
+      title: "Formik Form",
+      message: "Form has passed validation and is submitted",
+    })
   }
 
   return (

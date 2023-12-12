@@ -4,6 +4,7 @@ import { PasswordInput } from "react-hook-form-mantine"
 import { useDisclosure } from "@mantine/hooks"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { customZodSchema } from "zod-password-validation-schema"
+import { notifications } from "@mantine/notifications"
 
 export const ReactHooksForm = () => {
   const [visible, { toggle }] = useDisclosure(false)
@@ -19,6 +20,10 @@ export const ReactHooksForm = () => {
   const submitForm = (values: IPasswordFormFields) => {
     console.log("React Hook Form - Submit")
     console.log(values)
+    notifications.show({
+      title: "React Hook Form",
+      message: "Form has passed validation and is submitted",
+    })
   }
 
   return (

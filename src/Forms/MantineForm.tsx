@@ -11,6 +11,7 @@ import { useForm } from "@mantine/form"
 import { useDisclosure } from "@mantine/hooks"
 import { zodResolver } from "mantine-form-zod-resolver"
 import { customZodSchema } from "zod-password-validation-schema"
+import { notifications } from "@mantine/notifications"
 
 export const MantineForm = () => {
   const [visible, { toggle }] = useDisclosure(false)
@@ -26,6 +27,10 @@ export const MantineForm = () => {
   const submitForm = (values: IPasswordFormFields) => {
     console.log("Mantine Form - Submit")
     console.log(values)
+    notifications.show({
+      title: "Mantine Form",
+      message: "Form has passed validation and is submitted",
+    })
   }
 
   return (

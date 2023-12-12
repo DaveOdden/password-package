@@ -10,13 +10,18 @@ import {
 import { Form, Field } from "react-final-form"
 import { useDisclosure } from "@mantine/hooks"
 import { customZodSchema } from "zod-password-validation-schema"
+import { notifications } from "@mantine/notifications"
 
 export const ReactFinalForm = () => {
   const [visible, { toggle }] = useDisclosure(false)
 
   const submitForm = (values: IPasswordFormFields) => {
-    console.log("Formik Form - Submit")
+    console.log("React Final Form - Submit")
     console.log(values)
+    notifications.show({
+      title: "React Final Form",
+      message: "Form has passed validation and is submitted",
+    })
   }
 
   const formValidator =
@@ -36,43 +41,45 @@ export const ReactFinalForm = () => {
         <Form
           onSubmit={submitForm}
           validate={formValidator(customZodSchema)}
-          render={() => (
-            <Stack>
-              <Title order={2}>Final React Form</Title>
+          render={({ handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
+              <Stack>
+                <Title order={2}>React Final Form</Title>
 
-              <Field name="password">
-                {({ input, meta }) => (
-                  <PasswordInput
-                    label="Password"
-                    visible={visible}
-                    onVisibilityChange={toggle}
-                    visibilityToggleButtonProps={{
-                      "aria-label": "Toggle password visibility",
-                    }}
-                    error={meta.touched && meta.error ? meta.error[0] : null}
-                    {...input}
-                  />
-                )}
-              </Field>
-              <Field name="confirmPassword">
-                {({ input, meta }) => (
-                  <PasswordInput
-                    label="Confirm password"
-                    visible={visible}
-                    onVisibilityChange={toggle}
-                    visibilityToggleButtonProps={{
-                      "aria-label": "Toggle password visibility",
-                    }}
-                    error={meta.touched && meta.error ? meta.error[0] : null}
-                    {...input}
-                  />
-                )}
-              </Field>
+                <Field name="password">
+                  {({ input, meta }) => (
+                    <PasswordInput
+                      label="Password"
+                      visible={visible}
+                      onVisibilityChange={toggle}
+                      visibilityToggleButtonProps={{
+                        "aria-label": "Toggle password visibility",
+                      }}
+                      error={meta.touched && meta.error ? meta.error[0] : null}
+                      {...input}
+                    />
+                  )}
+                </Field>
+                <Field name="confirmPassword">
+                  {({ input, meta }) => (
+                    <PasswordInput
+                      label="Confirm password"
+                      visible={visible}
+                      onVisibilityChange={toggle}
+                      visibilityToggleButtonProps={{
+                        "aria-label": "Toggle password visibility",
+                      }}
+                      error={meta.touched && meta.error ? meta.error[0] : null}
+                      {...input}
+                    />
+                  )}
+                </Field>
 
-              <Button type="submit" mt="md">
-                Submit
-              </Button>
-            </Stack>
+                <Button type="submit" mt="md">
+                  Submit
+                </Button>
+              </Stack>
+            </form>
           )}
         />
       </Paper>
