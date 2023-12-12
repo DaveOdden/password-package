@@ -13,7 +13,7 @@ import { zodResolver } from "mantine-form-zod-resolver"
 import { customZodSchema } from "zod-password-validation-schema"
 import { notifications } from "@mantine/notifications"
 
-export const MantineForm = () => {
+export const MantineForm: React.FC<{}> = () => {
   const [visible, { toggle }] = useDisclosure(false)
 
   const form = useForm<z.infer<typeof customZodSchema>>({
@@ -33,8 +33,6 @@ export const MantineForm = () => {
       color: "green",
     })
   }
-
-  console.log(form.getInputProps("password"))
 
   return (
     <Center>

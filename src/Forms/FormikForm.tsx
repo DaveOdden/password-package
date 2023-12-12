@@ -12,10 +12,10 @@ import { customZodSchema } from "zod-password-validation-schema"
 import { toFormikValidate } from "zod-formik-adapter"
 import { notifications } from "@mantine/notifications"
 
-export const FormikForm = () => {
+export const FormikForm: React.FC<{}> = () => {
   const [visible, { toggle }] = useDisclosure(false)
 
-  const submitForm = (values: IPasswordFormFields) => {
+  const submitForm = (values: IPasswordFormFields): void => {
     console.log("Formik Form - Submit")
     console.log(values)
     notifications.show({

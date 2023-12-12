@@ -6,19 +6,19 @@ import { Carousel, Embla } from "@mantine/carousel"
 import { Header } from "./components/Header.tsx"
 import { SlideComponents } from "./components/SlideComponents.tsx"
 
-export const App = () => {
+export const App: React.FC = () => {
   const location = useLocation()
   const slideIndex = location.pathname.slice(1, location.pathname.length)
   const initialSlideIndex =
     location.pathname.length > 1 ? parseInt(slideIndex) : 0
-  const [slide, setSlide] = useState(initialSlideIndex)
+  const [slide, setSlide] = useState<number>(initialSlideIndex)
   const [embla, setEmbla] = useState<Embla | null>(null)
 
-  useEffect(() => embla?.scrollTo(initialSlideIndex), [embla])
+  useEffect((): void => embla?.scrollTo(initialSlideIndex), [embla])
 
   return (
     <Container fluid>
-      <Header instanceApi={embla} />
+      <Header carouselApi={embla} />
       <Carousel
         draggable={false}
         withControls={false}
@@ -26,7 +26,7 @@ export const App = () => {
         getEmblaApi={(e) => setEmbla(e)}
         slideSize={440}
       >
-        <SlideComponents currentSlide={slide} instanceApi={embla} />
+        <SlideComponents currentSlide={slide} carouselApi={embla} />
       </Carousel>
     </Container>
   )

@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { customZodSchema } from "zod-password-validation-schema"
 import { notifications } from "@mantine/notifications"
 
-export const ReactHooksForm = () => {
+export const ReactHooksForm: React.FC<{}> = () => {
   const [visible, { toggle }] = useDisclosure(false)
 
   const {
@@ -30,8 +30,6 @@ export const ReactHooksForm = () => {
       color: "green",
     })
   }
-
-  console.log(errors)
 
   return (
     <Center>

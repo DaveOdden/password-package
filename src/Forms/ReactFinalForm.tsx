@@ -12,7 +12,7 @@ import { useDisclosure } from "@mantine/hooks"
 import { customZodSchema } from "zod-password-validation-schema"
 import { notifications } from "@mantine/notifications"
 
-export const ReactFinalForm = () => {
+export const ReactFinalForm: React.FC<{}> = () => {
   const [visible, { toggle }] = useDisclosure(false)
 
   const submitForm = (values: IPasswordFormFields) => {
