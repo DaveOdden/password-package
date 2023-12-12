@@ -14,7 +14,7 @@ export const Nav = (props: any) => {
 
   const navigateToRoute = (key: string) => {
     setActive(key)
-    navigate(`/${key}`)
+    navigate(key)
     carouselApi.scrollTo(parseInt(key))
   }
 
