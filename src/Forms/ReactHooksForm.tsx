@@ -9,7 +9,11 @@ import { notifications } from "@mantine/notifications"
 export const ReactHooksForm = () => {
   const [visible, { toggle }] = useDisclosure(false)
 
-  const { control, handleSubmit } = useForm({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       password: "",
       confirmPassword: "",
@@ -23,8 +27,11 @@ export const ReactHooksForm = () => {
     notifications.show({
       title: "React Hook Form",
       message: "Form has passed validation and is submitted",
+      color: "green",
     })
   }
+
+  console.log(errors)
 
   return (
     <Center>
@@ -40,6 +47,7 @@ export const ReactHooksForm = () => {
               visibilityToggleButtonProps={{
                 "aria-label": "Toggle password visibility",
               }}
+              aria-invalid={errors?.password ? true : false}
               control={control}
             />
             <PasswordInput
@@ -50,6 +58,7 @@ export const ReactHooksForm = () => {
               visibilityToggleButtonProps={{
                 "aria-label": "Toggle password visibility",
               }}
+              aria-invalid={errors?.confirmPassword ? true : false}
               control={control}
             />
             <Button type="submit" mt="md">

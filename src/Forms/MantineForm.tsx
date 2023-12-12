@@ -30,8 +30,11 @@ export const MantineForm = () => {
     notifications.show({
       title: "Mantine Form",
       message: "Form has passed validation and is submitted",
+      color: "green",
     })
   }
+
+  console.log(form.getInputProps("password"))
 
   return (
     <Center>
@@ -46,6 +49,7 @@ export const MantineForm = () => {
               visibilityToggleButtonProps={{
                 "aria-label": "Toggle password visibility",
               }}
+              aria-invalid={form.getInputProps("password")?.error?.length > 0}
               {...form.getInputProps("password")}
             />
             <PasswordInput
@@ -55,6 +59,9 @@ export const MantineForm = () => {
               visibilityToggleButtonProps={{
                 "aria-label": "Toggle password visibility",
               }}
+              aria-invalid={
+                form.getInputProps("confirmPassword")?.error?.length > 0
+              }
               {...form.getInputProps("confirmPassword")}
             />
             <Button type="submit" mt="md">

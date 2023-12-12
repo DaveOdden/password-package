@@ -21,6 +21,7 @@ export const ReactFinalForm = () => {
     notifications.show({
       title: "React Final Form",
       message: "Form has passed validation and is submitted",
+      color: "green",
     })
   }
 
@@ -56,6 +57,7 @@ export const ReactFinalForm = () => {
                         "aria-label": "Toggle password visibility",
                       }}
                       error={meta.touched && meta.error ? meta.error[0] : null}
+                      aria-invalid={meta.touched && meta.error ? true : false}
                       {...input}
                     />
                   )}
@@ -70,6 +72,7 @@ export const ReactFinalForm = () => {
                         "aria-label": "Toggle password visibility",
                       }}
                       error={meta.touched && meta.error ? meta.error[0] : null}
+                      aria-invalid={meta.touched && meta.error ? true : false}
                       {...input}
                     />
                   )}

@@ -21,6 +21,7 @@ export const FormikForm = () => {
     notifications.show({
       title: "Formik Form",
       message: "Form has passed validation and is submitted",
+      color: "green",
     })
   }
 
@@ -68,6 +69,9 @@ export const FormikForm = () => {
                   onBlur={handleBlur}
                   value={values.password}
                   name="password"
+                  aria-invalid={
+                    errors.password && touched.password ? true : false
+                  }
                 />
                 <PasswordInput
                   label="Confirm password"
@@ -85,6 +89,11 @@ export const FormikForm = () => {
                   onBlur={handleBlur}
                   value={values.confirmPassword}
                   name="confirmPassword"
+                  aria-invalid={
+                    errors.confirmPassword && touched.confirmPassword
+                      ? true
+                      : false
+                  }
                 />
                 <Button type="submit" mt="md">
                   Submit
