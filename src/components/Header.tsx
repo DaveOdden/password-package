@@ -3,8 +3,8 @@ import { Nav } from "./Nav.tsx"
 
 export const Header = ({ instanceApi }: ISlideComponent) => {
   return (
-    <Flex align="center" direction="column" mb="xl">
-      <Title order={1} mt="xl" mb="sm">
+    <Flex align="center" direction="column" mb="lg">
+      <Title order={1} mt="xl" mb="sm" ta="center">
         Form Validation Schema Test Harness
       </Title>
       <Text c="dimmed" ta="center" mb="xl">

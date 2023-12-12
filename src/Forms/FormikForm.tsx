@@ -81,7 +81,9 @@ export const FormikForm = () => {
                   value={values.confirmPassword}
                   name="confirmPassword"
                 />
-                <Button type="submit">Submit</Button>
+                <Button type="submit" mt="md">
+                  Submit
+                </Button>
               </Stack>
             </Form>
           )}

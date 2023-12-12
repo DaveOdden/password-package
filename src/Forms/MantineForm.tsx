@@ -52,7 +52,9 @@ export const MantineForm = () => {
               }}
               {...form.getInputProps("confirmPassword")}
             />
-            <Button type="submit">Submit</Button>
+            <Button type="submit" mt="md">
+              Submit
+            </Button>
           </Stack>
         </form>
       </Paper>

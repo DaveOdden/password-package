@@ -47,7 +47,9 @@ export const ReactHooksForm = () => {
               }}
               control={control}
             />
-            <Button type="submit">Submit</Button>
+            <Button type="submit" mt="md">
+              Submit
+            </Button>
           </Stack>
         </form>
       </Paper>

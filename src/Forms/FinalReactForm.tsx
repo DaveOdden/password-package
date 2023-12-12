@@ -69,7 +69,9 @@ export const FinalReactForm = () => {
                 )}
               </Field>
 
-              <Button type="submit">Submit</Button>
+              <Button type="submit" mt="md">
+                Submit
+              </Button>
             </Stack>
           )}
         />

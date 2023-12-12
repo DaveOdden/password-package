@@ -17,12 +17,12 @@ export const App = () => {
   useEffect(() => embla?.scrollTo(initialSlideIndex), [embla])
 
   return (
-    <Container size="xl">
+    <Container fluid>
       <Header instanceApi={embla} />
       <Carousel
+        draggable={false}
         withControls={false}
         onSlideChange={setSlide}
-        slideSize={440}
         getEmblaApi={(e) => setEmbla(e)}
       >
         <SlideComponents currentSlide={slide} instanceApi={embla} />
