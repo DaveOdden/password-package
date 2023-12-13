@@ -2,6 +2,7 @@ import { MantineForm } from "./Forms/MantineForm.tsx"
 import { ReactHooksForm } from "./Forms/ReactHooksForm.tsx"
 import { FormikForm } from "./Forms/FormikForm.tsx"
 import { ReactFinalForm } from "./Forms/ReactFinalForm.tsx"
+import { TanstackForm } from "./Forms/TanstackForm.tsx"
 
 export const SLIDE_COMPONENTS = [
   {
@@ -19,7 +20,7 @@ export const SLIDE_COMPONENTS = [
   {
     value: "2",
     key: "formik-form",
-    label: "Formik Form",
+    label: "Formik",
     Component: FormikForm,
   },
   {
@@ -27,5 +28,11 @@ export const SLIDE_COMPONENTS = [
     key: "react-final-form",
     label: "React Final Form",
     Component: ReactFinalForm,
+  },
+  {
+    value: "4",
+    key: "tanstack-form",
+    label: "Tanstack Form",
+    Component: TanstackForm,
   },
 ]

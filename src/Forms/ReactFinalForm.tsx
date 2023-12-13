@@ -29,6 +29,7 @@ export const ReactFinalForm: React.FC<{}> = () => {
     <T extends z.ZodType<any, any>>(schema: T) =>
     (values: any) => {
       try {
+        console.log(values)
         schema.parse(values)
         return {}
       } catch (err) {
